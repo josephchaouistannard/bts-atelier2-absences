@@ -150,6 +150,7 @@
     <EmbeddedResource Include="view\FormPersonnel.resx">
       <DependentUpon>FormPersonnel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="docstechniques.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
