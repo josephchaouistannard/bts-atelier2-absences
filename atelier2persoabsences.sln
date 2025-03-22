@@ -5,6 +5,11 @@ VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "atelier2persoabsences", "atelier2persoabsences\atelier2persoabsences.csproj", "{675EEC93-8F0C-42C1-B001-1675B589B724}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{9C8CB701-102D-CF49-A3E0-89AC09D42C2C}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\BTS SIO SLAM\SLAM Ateliers de professionalisation - 1ere année\Atelier 2\docstechniques.zip = ..\..\..\..\BTS SIO SLAM\SLAM Ateliers de professionalisation - 1ere année\Atelier 2\docstechniques.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

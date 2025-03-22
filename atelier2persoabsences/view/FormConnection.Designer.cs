@@ -1,4 +1,4 @@
-﻿namespace atelier2persoabsences
+﻿namespace atelier2persoabsences.view
 {
     partial class FormConnection
     {
@@ -111,7 +111,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FormConnection";
             this.Text = "Connection";
-            this.Load += new System.EventHandler(this.FormConnection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

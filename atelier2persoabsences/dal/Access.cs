@@ -8,6 +8,9 @@ using atelier2persoabsences.bddmanager;
 
 namespace atelier2persoabsences.dal
 {
+    /// <summary>
+    /// Singleton : pour accèder au BddManager
+    /// </summary>
     public class Access
     {
         // chaine de connexion à la bdd
@@ -17,6 +20,9 @@ namespace atelier2persoabsences.dal
         // objet d'accès aux données
         public BddManager Manager { get; }
 
+        /// <summary>
+        /// Constructeur privé qui récupère instance existant ou en crée une
+        /// </summary>
         private Access()
         {
             try
@@ -30,6 +36,10 @@ namespace atelier2persoabsences.dal
             }
         }
 
+        /// <summary>
+        /// Méthode pour accèder au singleton Access
+        /// </summary>
+        /// <returns></returns>
         public static Access GetInstance()
         {
             if (Access.instance == null)

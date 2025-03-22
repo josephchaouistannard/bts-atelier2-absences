@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace atelier2persoabsences
+namespace atelier2persoabsences.view
 {
     public partial class FormConnection: Form
     {
@@ -17,9 +17,5 @@ namespace atelier2persoabsences
             InitializeComponent();
         }
 
-        private void FormConnection_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
