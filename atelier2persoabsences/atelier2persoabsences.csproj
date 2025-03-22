@@ -75,6 +75,9 @@
     <Compile Include="view\FormPersonnel.Designer.cs">
       <DependentUpon>FormPersonnel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\FormAbsences.resx">
+      <DependentUpon>FormAbsences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\FormConnection.resx">
       <DependentUpon>FormConnection.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +90,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\FormPersonnel.resx">
+      <DependentUpon>FormPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
