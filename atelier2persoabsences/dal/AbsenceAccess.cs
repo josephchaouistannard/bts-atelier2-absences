@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace atelier2persoabsences.dal
 {
-    class AbsenceAccess
+    public class AbsenceAccess
     {
+        private readonly Access access = null;
+
+        public AbsenceAccess()
+        {
+            this.access = Access.GetInstance();
+        }
     }
 }
