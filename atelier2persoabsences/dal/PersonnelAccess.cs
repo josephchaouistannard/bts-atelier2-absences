@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,11 @@ namespace atelier2persoabsences.dal
             this.access = Access.GetInstance();
         }
 
+        /// <summary>
+        /// Envoie requête SQL pour obtenir la liste de personnel apartenant à la liste des services
+        /// </summary>
+        /// <param name="lesServices"></param>
+        /// <returns></returns>
         public List<Personnel> GetLePersonnel(List<Service> lesServices)
         {
             List<Personnel> lePersonnel = new List<Personnel>();
@@ -69,6 +75,48 @@ namespace atelier2persoabsences.dal
             }
 
             return lePersonnel;
+        }
+
+        /// <summary>
+        /// Envoie requête SQL pour ajouter une ligne dans Personnel
+        /// </summary>
+        /// <param name="perso"></param>
+        public void AjouterPersonnel(Personnel perso)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@nom", perso.Nom);
+            parameters.Add("@prenom", perso.Prenom);
+            parameters.Add("@tel", perso.Tel);
+            parameters.Add("@mail", perso.Mail);
+            parameters.Add("@idservice", perso.Service.Idservice);
+            this.access.Manager.ReqUpdate("insert into personnel (nom, prenom, tel, mail, idservice) values (@nom, @prenom, @tel, @mail, @idservice)", parameters);
+        }
+
+        /// <summary>
+        /// Envoie requête SQL pour mettre à jour une ligne dans Personnel
+        /// </summary>
+        /// <param name="perso"></param>
+        public void ModifierPersonnel(Personnel perso)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@idpersonnel", perso.Idpersonnel);
+            parameters.Add("@nom", perso.Nom);
+            parameters.Add("@prenom", perso.Prenom);
+            parameters.Add("@tel", perso.Tel);
+            parameters.Add("@mail", perso.Mail);
+            parameters.Add("@idservice", perso.Service.Idservice);
+            this.access.Manager.ReqUpdate("update personnel set nom = @nom, prenom = @prenom, tel = @tel, mail = @mail, idservice = @idservice where idpersonnel = @idpersonnel", parameters);
+        }
+
+        /// <summary>
+        /// Envoie requête SQL pour supprimer une ligne dans Personnel
+        /// </summary>
+        /// <param name="perso"></param>
+        public void SupprimerPersonnel(Personnel perso)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@idpersonnel", perso.Idpersonnel);
+            this.access.Manager.ReqUpdate("delete from personnel where idpersonnel = @idpersonnel", parameters);
         }
     }
 }

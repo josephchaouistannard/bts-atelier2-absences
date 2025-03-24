@@ -91,6 +91,7 @@
             this.btnAnnuler.TabIndex = 11;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnAjoutModif
             // 
@@ -100,6 +101,7 @@
             this.btnAjoutModif.TabIndex = 10;
             this.btnAjoutModif.Text = "Ajouter";
             this.btnAjoutModif.UseVisualStyleBackColor = true;
+            this.btnAjoutModif.Click += new System.EventHandler(this.btnAjoutModif_Click);
             // 
             // comboService
             // 
@@ -190,6 +192,7 @@
             this.btnAjouter.TabIndex = 2;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnSupprimer
             // 
@@ -199,6 +202,7 @@
             this.btnSupprimer.TabIndex = 3;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -208,6 +212,7 @@
             this.btnModifier.TabIndex = 4;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAbsences
             // 
@@ -238,7 +243,7 @@
             this.dgvPersonnel.RowHeadersVisible = false;
             this.dgvPersonnel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersonnel.Size = new System.Drawing.Size(511, 188);
-            this.dgvPersonnel.TabIndex = 7;
+            this.dgvPersonnel.TabIndex = 0;
             // 
             // FormPersonnel
             // 

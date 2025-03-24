@@ -40,5 +40,32 @@ namespace atelier2persoabsences.controller
         {
             return personnelAccess.GetLePersonnel(listeServices);
         }
+
+        /// <summary>
+        /// Demande au dal d'ajouter une ligne dans Personnel
+        /// </summary>
+        /// <param name="perso"></param>
+        public void AjouterPersonnel(Personnel perso)
+        {
+            personnelAccess.AjouterPersonnel(perso);
+        }
+
+        /// <summary>
+        /// Demande au dal de mettre à jour une ligne dans Personnel
+        /// </summary>
+        /// <param name="perso"></param>
+        public void ModifierPersonnel(Personnel perso)
+        {
+            personnelAccess.ModifierPersonnel(perso);
+        }
+
+        /// <summary>
+        /// Demande au dal de supprimer une ligne dans Personnel
+        /// </summary>
+        /// <param name="perso"></param>
+        public void SupprimerPersonnel(Personnel perso)
+        {
+            personnelAccess.SupprimerPersonnel(perso);
+        }
     }
 }
