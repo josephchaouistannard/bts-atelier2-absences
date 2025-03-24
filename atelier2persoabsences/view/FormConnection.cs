@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using atelier2persoabsences.dal;
+using atelier2persoabsences.controller;
 using atelier2persoabsences.model;
 
 namespace atelier2persoabsences.view

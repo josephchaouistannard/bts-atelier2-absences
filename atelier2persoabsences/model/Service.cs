@@ -24,5 +24,14 @@ namespace atelier2persoabsences.model
             Idservice = idservice;
             Nom = nom;
         }
+
+        /// <summary>
+        /// Utilise Nom pour representer une instance de la classe sous forme de chaine
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }

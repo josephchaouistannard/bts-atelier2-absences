@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace atelier2persoabsences.dal
+namespace atelier2persoabsences.controller
 {
     class FormAbsenceController
     {

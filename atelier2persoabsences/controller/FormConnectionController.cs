@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using atelier2persoabsences.dal;
 using atelier2persoabsences.model;
 
-namespace atelier2persoabsences.dal
+namespace atelier2persoabsences.controller
 {
     /// <summary>
     /// Controlleur pour la fenêtre d'authenification
