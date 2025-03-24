@@ -22,7 +22,6 @@ namespace atelier2persoabsences.view
         private List<Service> listeService;
         private BindingSource bindingPersonnel;
         private BindingSource bindingService;
-        private bool modification;
 
         /// <summary>
         /// Constructeur pour instancier la fenêtre FormPersonnel

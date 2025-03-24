@@ -235,6 +235,7 @@
             // 
             // dgvPersonnel
             // 
+            this.dgvPersonnel.AllowUserToResizeRows = false;
             this.dgvPersonnel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonnel.Location = new System.Drawing.Point(13, 28);

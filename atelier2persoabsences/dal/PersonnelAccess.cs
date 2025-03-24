@@ -47,7 +47,7 @@ namespace atelier2persoabsences.dal
                     query = query + ", " + lesServices[i].Idservice;
                 }
             }
-            query += ");";
+            query += ") order by nom asc, prenom asc;";
 
             try
             {
@@ -65,7 +65,7 @@ namespace atelier2persoabsences.dal
                 {
                     try
                     {
-                        lePersonnel.Add(new Personnel((int)obj[0], (string)obj[1], (string)obj[2], (string)obj[3], (string)obj[4], (Service)lesServices[(int)obj[5] - 1]));
+                        lePersonnel.Add(new Personnel((int)obj[0], (string)obj[1], (string)obj[2], (string)obj[3], (string)obj[4], lesServices[(int)obj[5] - 1]));
                     }
                     catch (Exception e)
                     {

@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAbsences = new System.Windows.Forms.DataGridView();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnRetourner = new System.Windows.Forms.Button();
             this.groupAjoutModif = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnAjoutModif = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.comboMotif = new System.Windows.Forms.ComboBox();
@@ -43,17 +43,23 @@
             this.dateFin = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dateDebut = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
             this.groupAjoutModif.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAbsences
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(413, 191);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvAbsences.AllowUserToResizeRows = false;
+            this.dgvAbsences.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAbsences.Location = new System.Drawing.Point(13, 13);
+            this.dgvAbsences.MultiSelect = false;
+            this.dgvAbsences.Name = "dgvAbsences";
+            this.dgvAbsences.ReadOnly = true;
+            this.dgvAbsences.RowHeadersVisible = false;
+            this.dgvAbsences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAbsences.Size = new System.Drawing.Size(413, 191);
+            this.dgvAbsences.TabIndex = 0;
             // 
             // btnAjouter
             // 
@@ -63,6 +69,7 @@
             this.btnAjouter.TabIndex = 1;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnSupprimer
             // 
@@ -72,6 +79,7 @@
             this.btnSupprimer.TabIndex = 2;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -81,6 +89,7 @@
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnRetourner
             // 
@@ -94,7 +103,7 @@
             // 
             // groupAjoutModif
             // 
-            this.groupAjoutModif.Controls.Add(this.button6);
+            this.groupAjoutModif.Controls.Add(this.btnAnnuler);
             this.groupAjoutModif.Controls.Add(this.btnAjoutModif);
             this.groupAjoutModif.Controls.Add(this.lblError);
             this.groupAjoutModif.Controls.Add(this.comboMotif);
@@ -110,14 +119,15 @@
             this.groupAjoutModif.TabStop = false;
             this.groupAjoutModif.Text = "Ajouter";
             // 
-            // button6
+            // btnAnnuler
             // 
-            this.button6.Location = new System.Drawing.Point(307, 76);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Annuler";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Location = new System.Drawing.Point(307, 76);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnuler.TabIndex = 15;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnAjoutModif
             // 
@@ -127,6 +137,7 @@
             this.btnAjoutModif.TabIndex = 14;
             this.btnAjoutModif.Text = "Ajouter";
             this.btnAjoutModif.UseVisualStyleBackColor = true;
+            this.btnAjoutModif.Click += new System.EventHandler(this.btnAjoutModif_Click);
             // 
             // lblError
             // 
@@ -196,12 +207,12 @@
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAbsences);
             this.Name = "FormAbsences";
             this.Text = "Absences";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAbsences_FormClosing);
             this.Load += new System.EventHandler(this.FormAbsences_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).EndInit();
             this.groupAjoutModif.ResumeLayout(false);
             this.groupAjoutModif.PerformLayout();
             this.ResumeLayout(false);
@@ -210,7 +221,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAbsences;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnModifier;
@@ -222,7 +233,7 @@
         private System.Windows.Forms.DateTimePicker dateFin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateDebut;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnAjoutModif;
         private System.Windows.Forms.Label lblError;
     }

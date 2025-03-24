@@ -24,5 +24,14 @@ namespace atelier2persoabsences.model
             Idmotif = idmotif;
             Libelle = libelle;
         }
+
+        /// <summary>
+        /// Resprentation d'instance de Motif sous forme de chaine
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Libelle;
+        }
     }
 }
