@@ -259,5 +259,29 @@ namespace atelier2persoabsences.view
         {
             ResetDisplay();
         }
+
+        /// <summary>
+        /// Evenement clic sur bouton Absences qui appelle fonction VoirAbsences
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAbsences_Click(object sender, EventArgs e)
+        {
+            VoirAbsences();
+        }
+
+        public void VoirAbsences()
+        {
+            if (!(dgvPersonnel.SelectedRows is null))
+            {
+                Form absences = new FormAbsences(this, listePersonnel[dgvPersonnel.CurrentRow.Index]);
+                absences.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Selectionner une ligne avant");
+            }
+        }
     }
 }

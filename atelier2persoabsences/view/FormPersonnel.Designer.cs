@@ -222,6 +222,7 @@
             this.btnAbsences.TabIndex = 5;
             this.btnAbsences.Text = "Absences";
             this.btnAbsences.UseVisualStyleBackColor = true;
+            this.btnAbsences.Click += new System.EventHandler(this.btnAbsences_Click);
             // 
             // lblTop
             // 

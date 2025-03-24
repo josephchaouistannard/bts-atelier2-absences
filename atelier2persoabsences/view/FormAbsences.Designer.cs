@@ -34,15 +34,15 @@
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnRetourner = new System.Windows.Forms.Button();
             this.groupAjoutModif = new System.Windows.Forms.GroupBox();
-            this.dateDebut = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnAjoutModif = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
+            this.comboMotif = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateFin = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboMotif = new System.Windows.Forms.ComboBox();
-            this.lblError = new System.Windows.Forms.Label();
-            this.btnAjoutModif = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateDebut = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupAjoutModif.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,7 @@
             this.btnRetourner.TabIndex = 4;
             this.btnRetourner.Text = "Retourner au personnel";
             this.btnRetourner.UseVisualStyleBackColor = true;
+            this.btnRetourner.Click += new System.EventHandler(this.btnRetourner_Click);
             // 
             // groupAjoutModif
             // 
@@ -109,21 +110,49 @@
             this.groupAjoutModif.TabStop = false;
             this.groupAjoutModif.Text = "Ajouter";
             // 
-            // dateDebut
+            // button6
             // 
-            this.dateDebut.Location = new System.Drawing.Point(10, 36);
-            this.dateDebut.Name = "dateDebut";
-            this.dateDebut.Size = new System.Drawing.Size(184, 20);
-            this.dateDebut.TabIndex = 0;
+            this.button6.Location = new System.Drawing.Point(307, 76);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 15;
+            this.button6.Text = "Annuler";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnAjoutModif
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Date de début";
+            this.btnAjoutModif.Location = new System.Drawing.Point(226, 76);
+            this.btnAjoutModif.Name = "btnAjoutModif";
+            this.btnAjoutModif.Size = new System.Drawing.Size(75, 23);
+            this.btnAjoutModif.TabIndex = 14;
+            this.btnAjoutModif.Text = "Ajouter";
+            this.btnAjoutModif.UseVisualStyleBackColor = true;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblError.Location = new System.Drawing.Point(223, 60);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 13;
+            // 
+            // comboMotif
+            // 
+            this.comboMotif.FormattingEnabled = true;
+            this.comboMotif.Location = new System.Drawing.Point(226, 35);
+            this.comboMotif.Name = "comboMotif";
+            this.comboMotif.Size = new System.Drawing.Size(180, 21);
+            this.comboMotif.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(223, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Motif";
             // 
             // label2
             // 
@@ -141,49 +170,21 @@
             this.dateFin.Size = new System.Drawing.Size(184, 20);
             this.dateFin.TabIndex = 2;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(223, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Motif";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Date de début";
             // 
-            // comboMotif
+            // dateDebut
             // 
-            this.comboMotif.FormattingEnabled = true;
-            this.comboMotif.Location = new System.Drawing.Point(226, 35);
-            this.comboMotif.Name = "comboMotif";
-            this.comboMotif.Size = new System.Drawing.Size(180, 21);
-            this.comboMotif.TabIndex = 5;
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblError.Location = new System.Drawing.Point(223, 60);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 13);
-            this.lblError.TabIndex = 13;
-            // 
-            // btnAjoutModif
-            // 
-            this.btnAjoutModif.Location = new System.Drawing.Point(226, 76);
-            this.btnAjoutModif.Name = "btnAjoutModif";
-            this.btnAjoutModif.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutModif.TabIndex = 14;
-            this.btnAjoutModif.Text = "Ajouter";
-            this.btnAjoutModif.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(307, 76);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Annuler";
-            this.button6.UseVisualStyleBackColor = true;
+            this.dateDebut.Location = new System.Drawing.Point(10, 36);
+            this.dateDebut.Name = "dateDebut";
+            this.dateDebut.Size = new System.Drawing.Size(184, 20);
+            this.dateDebut.TabIndex = 0;
             // 
             // FormAbsences
             // 
@@ -198,6 +199,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormAbsences";
             this.Text = "Absences";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAbsences_FormClosing);
+            this.Load += new System.EventHandler(this.FormAbsences_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupAjoutModif.ResumeLayout(false);
             this.groupAjoutModif.PerformLayout();

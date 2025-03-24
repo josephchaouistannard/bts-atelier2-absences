@@ -52,6 +52,11 @@ namespace atelier2persoabsences.view
             }
         }
 
+        /// <summary>
+        /// Evenement clic sur bouton Se Connecter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConnecter_Click(object sender, EventArgs e)
         {
             Connection();
