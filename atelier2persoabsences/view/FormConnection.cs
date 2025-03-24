@@ -7,15 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using atelier2persoabsences.dal;
+using atelier2persoabsences.model;
 
 namespace atelier2persoabsences.view
 {
     public partial class FormConnection: Form
     {
+        private FormConnectionController control;
+
+        /// <summary>
+        /// Fenêtre de connection qui s'ouvre au démarrage
+        /// </summary>
         public FormConnection()
         {
             InitializeComponent();
+            control = new FormConnectionController();
         }
 
+        /// <summary>
+        /// Méthode eventmentielle après click sur Se Connecter
+        /// </summary>
+        private void Connection()
+        {
+            if (!String.IsNullOrWhiteSpace(txtLogin.Text) &&
+                !String.IsNullOrWhiteSpace(txtPwd.Text))
+            {
+                lblError.Text = "";
+                Responsable responsable = new Responsable(txtLogin.Text, txtPwd.Text);
+                if (control.ControleAuthentification(responsable))
+                {
+                    Form main = new FormPersonnel();
+                    main.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    lblError.Text = "Authentification echouée";
+                }
+            }
+            else
+            {
+                lblError.Text = "Il faut remplir tous les champs";
+            }
+        }
+
+        private void btnConnecter_Click(object sender, EventArgs e)
+        {
+            Connection();
+        }
     }
 }

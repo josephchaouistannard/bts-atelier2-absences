@@ -14,7 +14,7 @@ namespace atelier2persoabsences.dal
     public class Access
     {
         // chaine de connexion à la bdd
-        private static readonly string connectionString = "server=localhost; port=3306; user id=mediatek; password='password'; database=mediatek86; SslMode=none";
+        private static readonly string connectionString = "server=localhost; port=3306; user id=mediatek; password='password'; database=mediatek86; SslMode=Required;";
         // instance unique de la classe
         private static Access instance = null;
         // objet d'accès aux données

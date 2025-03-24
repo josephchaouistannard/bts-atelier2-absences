@@ -103,11 +103,13 @@
     <Compile Include="controller\FormAbsenceController.cs" />
     <Compile Include="controller\FormConnectionController.cs" />
     <Compile Include="controller\FormPersonnelController.cs" />
+    <Compile Include="dal\ResponsableAccess.cs" />
     <Compile Include="dal\AbsenceAccess.cs" />
     <Compile Include="dal\Access.cs" />
     <Compile Include="dal\ServiceAccess.cs" />
     <Compile Include="dal\MotifAccess.cs" />
     <Compile Include="dal\PersonnelAccess.cs" />
+    <Compile Include="model\Responsable.cs" />
     <Compile Include="model\Absence.cs" />
     <Compile Include="model\Motif.cs" />
     <Compile Include="model\Service.cs" />

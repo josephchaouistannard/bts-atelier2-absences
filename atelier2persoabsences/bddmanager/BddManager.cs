@@ -8,7 +8,7 @@ namespace atelier2persoabsences.bddmanager
     /// <summary>
     /// Singleton : connexion à la base de données et exécution des requêtes
     /// </summary>
-    public class BddManager
+    public sealed class BddManager
     {
         /// <summary>
         /// instance unique de la classe
