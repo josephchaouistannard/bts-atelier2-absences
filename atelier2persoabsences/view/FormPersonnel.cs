@@ -228,20 +228,29 @@ namespace atelier2persoabsences.view
                 switch (btnAjoutModif.Text)
                 {
                     case "Modifier":
-                        Personnel persoAModifier = listePersonnel[dgvPersonnel.CurrentRow.Index];
-                        persoAModifier.Nom = txtNom.Text;
-                        persoAModifier.Prenom = txtPrenom.Text;
-                        persoAModifier.Mail = txtMail.Text;
-                        persoAModifier.Tel = txtTel.Text;
-                        persoAModifier.Service = (Service)comboService.SelectedItem;
-                        control.ModifierPersonnel(persoAModifier);
+                        DialogResult result = MessageBox.Show(
+                        "Confirmer la modification ?",
+                        "Confirmation",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            Personnel persoAModifier = listePersonnel[dgvPersonnel.CurrentRow.Index];
+                            persoAModifier.Nom = txtNom.Text;
+                            persoAModifier.Prenom = txtPrenom.Text;
+                            persoAModifier.Mail = txtMail.Text;
+                            persoAModifier.Tel = txtTel.Text;
+                            persoAModifier.Service = (Service)comboService.SelectedItem;
+                            control.ModifierPersonnel(persoAModifier);
+                            ResetDisplay();
+                        }
                         break;
                     case "Ajouter":
                         Personnel persoAAjouter = new Personnel(0, txtNom.Text, txtPrenom.Text, txtTel.Text, txtMail.Text, (Service)comboService.SelectedItem);
                         control.AjouterPersonnel(persoAAjouter);
+                        ResetDisplay();
                         break;
                 }
-                ResetDisplay();
             }
             else
             {
