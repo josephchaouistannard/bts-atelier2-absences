@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "atelier2persoabsences", "atelier2persoabsences\atelier2persoabsences.csproj", "{675EEC93-8F0C-42C1-B001-1675B589B724}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AbsencesInstalleur", "AbsencesInstalleur\AbsencesInstalleur.vdproj", "{793B7ED3-F907-E886-BCFF-D4654B094327}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{675EEC93-8F0C-42C1-B001-1675B589B724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{675EEC93-8F0C-42C1-B001-1675B589B724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{675EEC93-8F0C-42C1-B001-1675B589B724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793B7ED3-F907-E886-BCFF-D4654B094327}.Debug|Any CPU.ActiveCfg = Debug
+		{793B7ED3-F907-E886-BCFF-D4654B094327}.Debug|Any CPU.Build.0 = Debug
+		{793B7ED3-F907-E886-BCFF-D4654B094327}.Release|Any CPU.ActiveCfg = Release
+		{793B7ED3-F907-E886-BCFF-D4654B094327}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
