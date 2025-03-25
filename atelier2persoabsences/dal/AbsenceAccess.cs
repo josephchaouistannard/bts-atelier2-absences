@@ -92,5 +92,22 @@ namespace atelier2persoabsences.dal
             parameters.Add("@datedebut", absence.Datedebut);
             this.access.Manager.ReqUpdate("delete from absence where idpersonnel = @idpersonnel and datedebut = @datedebut", parameters);
         }
+
+        /// <summary>
+        /// Envoie requete SQL pour modifier une ligne dans Absence, identifiée par son date de début avant modification
+        /// </summary>
+        /// <param name="absence"></param>
+        /// <param name="perso"></param>
+        /// <param name="debutavant"></param>
+        public void ModifierAbsence(Absence absence, Personnel perso, DateTime debutavant)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@idpersonnel", perso.Idpersonnel);
+            parameters.Add("@datedebut", absence.Datedebut);
+            parameters.Add("@datefin", absence.Datefin);
+            parameters.Add("@idmotif", absence.Motif.Idmotif);
+            parameters.Add("@debutavant", debutavant);
+            this.access.Manager.ReqUpdate("update absence set datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif where idpersonnel = @idpersonnel and datedebut = @debutavant", parameters);
+        }
     }
 }

@@ -58,9 +58,22 @@ namespace atelier2persoabsences.controller
         /// Demande au dal de supprimer une ligne dans Absence
         /// </summary>
         /// <param name="absence"></param>
+        /// <param name="perso"></param>
         public void SupprimerAbsence(Absence absence, Personnel perso)
         {
             absenceAccess.SupprimerAbsence(absence, perso);
+        }
+
+        /// <summary>
+        /// Demande au dal de modifier une ligne dans Absence
+        /// </summary>
+        /// <param name="absence"></param>
+        /// <param name="perso"></param>
+        /// <param name="absenceAvant"></param>
+        public void ModifierAbsence(Absence absence, Personnel perso, Absence absenceAvant)
+        {
+            absenceAccess.SupprimerAbsence(absenceAvant, perso);
+            absenceAccess.AjouterAbsence(absence, perso);
         }
     }
 }

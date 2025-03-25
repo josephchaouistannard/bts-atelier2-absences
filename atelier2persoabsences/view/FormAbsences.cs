@@ -171,6 +171,7 @@ namespace atelier2persoabsences.view
             dateDebut.Value = DateTime.Now;
             dateFin.Value = DateTime.Now;
             lblError.Text = "";
+            absenceAvantModification = null;
         }
 
         public void RefreshData()
@@ -237,47 +238,101 @@ namespace atelier2persoabsences.view
         }
 
         /// <summary>
-        /// Méthode qui gère l'enregistrement d'ajout ou modification. La modification est en fait la suppression de l'ancienne ligne et l'ajout d'une nouvelle.
+        /// Méthode qui gère l'enregistrement d'ajout ou modification
         /// </summary>
         public void EnregisterAjoutModif()
         {
             int test = DateTime.Compare(dateDebut.Value, dateFin.Value);
             if (test > 0)
             {
-                lblError.Text = "La date de fin doit être le plus tard";
-            }
-            else if (test == 0)
-            {
-                lblError.Text = "Les deux dates sont identiques";
+                lblError.Text = "La date de fin est avant celle de début";
             }
             else
             {
                 switch (btnAjoutModif.Text)
                 {
                     case "Modifier":
-                        DialogResult result = MessageBox.Show(
-                        "Confirmer la modification ?",
-                        "Confirmation",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
+                        // Preparation d'instance à modifier
+                        Absence absenceAModifier = listeAbsences[dgvAbsences.CurrentRow.Index];
+                        absenceAModifier.Datedebut = dateDebut.Value;
+                        absenceAModifier.Datefin = dateFin.Value;
+                        absenceAModifier.Motif = (Motif)comboMotif.SelectedItem;
+
+                        if (VerifierModification(absenceAModifier, absenceAvantModification))
                         {
-                            control.SupprimerAbsence(absenceAvantModification, perso);
-                            Absence absenceAModifier = listeAbsences[dgvAbsences.CurrentRow.Index];
-                            absenceAModifier.Datedebut = dateDebut.Value;
-                            absenceAModifier.Datefin = dateFin.Value;
-                            absenceAModifier.Motif = (Motif)comboMotif.SelectedItem;
-                            control.AjouterAbsence(absenceAModifier, perso);
-                            ResetDisplay();
+                            DialogResult result = MessageBox.Show(
+                            "Confirmer la modification ?",
+                            "Confirmation",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                Absence absenceASupprimer = listeAbsences[dgvAbsences.CurrentRow.Index];
+                                control.SupprimerAbsence(absenceASupprimer, perso);
+                                control.AjouterAbsence(absenceAModifier, perso);
+                                ResetDisplay();
+                            }
                         }
                         break;
                     case "Ajouter":
-                        Absence AbsenceAAjouter = new Absence(perso, dateDebut.Value, dateFin.Value ,(Motif)comboMotif.SelectedItem);
-                        control.AjouterAbsence(AbsenceAAjouter, perso);
+                        Absence absenceAAjouter = new Absence(perso, dateDebut.Value, dateFin.Value ,(Motif)comboMotif.SelectedItem);
+                        if (VerifierAjout(absenceAAjouter))
+                        {
+                            control.AjouterAbsence(absenceAAjouter, perso);
+                            ResetDisplay();
+                        }
                         break;
                 }
-                ResetDisplay();
+                
             }
+        }
+
+        /// <summary>
+        /// Verifier l'existance d'une absence en conflit avec celle à ajouter. Retourne vrai si il n'y pas de conflit.
+        /// </summary>
+        /// <param name="nouvelle"></param>
+        /// <returns></returns>
+        public bool VerifierAjout(Absence nouvelle)
+        {
+            foreach (Absence existante in listeAbsences)
+            {
+                if (
+                    (existante.Datedebut <= nouvelle.Datefin && existante.Datedebut >= nouvelle.Datedebut) ||
+                    (existante.Datefin <= nouvelle.Datefin && existante.Datefin >= nouvelle.Datedebut) ||
+                    (existante.Datedebut <= nouvelle.Datedebut && existante.Datefin >= nouvelle.Datefin) ||
+                    (existante.Datedebut >= nouvelle.Datedebut && existante.Datefin <= nouvelle.Datefin))
+                {
+                    lblError.Text = "Déjà absence pendant cette période";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Verifier l'existance d'une absence en conflit avec celle à ajouter, mise apart celle en cours de modification. Retourne vrai si il n'y a pas de conflit.
+        /// </summary>
+        /// <param name="nouvelle"></param>
+        /// <param name="avantModification"></param>
+        /// <returns></returns>
+        public bool VerifierModification(Absence nouvelle, Absence avantModification)
+        {
+            foreach (Absence existante in listeAbsences)
+            {
+                if (!existante.Equals(avantModification))
+                {
+                    if (
+                        (existante.Datedebut <= nouvelle.Datefin && existante.Datedebut >= nouvelle.Datedebut) ||
+                        (existante.Datefin <= nouvelle.Datefin && existante.Datefin >= nouvelle.Datedebut) ||
+                        (existante.Datedebut <= nouvelle.Datedebut && existante.Datefin >= nouvelle.Datefin) ||
+                        (existante.Datedebut >= nouvelle.Datedebut && existante.Datefin <= nouvelle.Datefin))
+                    {
+                        lblError.Text = "Déjà absence pendant cette période";
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
