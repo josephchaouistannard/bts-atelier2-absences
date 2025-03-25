@@ -97,7 +97,7 @@ namespace atelier2persoabsences.view
         }
 
         /// <summary>
-        /// 
+        /// Réinitialiser l'affichage ainsi que les données
         /// </summary>
         public void ResetDisplay()
         {
@@ -113,7 +113,7 @@ namespace atelier2persoabsences.view
         /// <summary>
         /// Rendre active ou non la partie haute de la fenêtre
         /// </summary>
-        /// <param name="b"></param>
+        /// <param name="b">Vrai pour activer, faux pour désactiver</param>
         public void HautEnabled(bool b)
         {
             dgvPersonnel.Enabled = b;
@@ -278,6 +278,9 @@ namespace atelier2persoabsences.view
             VoirAbsences();
         }
 
+        /// <summary>
+        /// Ouverture d'une fenêtre Absences pour la personne selectée.
+        /// </summary>
         public void VoirAbsences()
         {
             if (!(dgvPersonnel.SelectedRows is null))

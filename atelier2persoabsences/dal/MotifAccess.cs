@@ -27,11 +27,11 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour obtenir la liste des motifs
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Tous les motifs dans la BDD</returns>
         public List<Motif> GetLesMotifs()
         {
             List<Motif> lesMotifs = new List<Motif>();
-            List<Object[]> result = new List<Object[]>();
+            List<Object[]> result;
 
             try
             {

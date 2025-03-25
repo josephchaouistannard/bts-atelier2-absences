@@ -27,8 +27,8 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Verifie les identifiants saisie et retourne vrai si la ligne est trouvé dans la table responsable
         /// </summary>
-        /// <param name="responsable"></param>
-        /// <returns></returns>
+        /// <param name="responsable">Couple login pwd à controller</param>
+        /// <returns>Vrai si l'authentification est réussi</returns>
         public bool ControleAuthentification(Responsable responsable)
         {
             List<Object[]> result = new List<Object[]>();
@@ -56,8 +56,8 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Fonction qui transforme une chaine avec Sha256
         /// </summary>
-        /// <param name="pwdPlain"></param>
-        /// <returns></returns>
+        /// <param name="pwdPlain">Mot de passe en texte simple</param>
+        /// <returns>Chaine crypté</returns>
         private string HashWithSha256(string pwdPlain)
         {
             using (SHA256 sha256Hash = SHA256.Create())

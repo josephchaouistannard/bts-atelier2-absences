@@ -11,14 +11,21 @@ namespace atelier2persoabsences.model
     /// </summary>
     public class Motif
     {
+        /// <summary>
+        /// Correspond au champ idmotif de la table Motif
+        /// </summary>
         public int Idmotif { get; }
+
+        /// <summary>
+        /// Correspond au champ libelle de la table Motif
+        /// </summary>
         public string Libelle { get; set; }
 
         /// <summary>
         /// Constructeur de la classe Motif
         /// </summary>
-        /// <param name="idmotif"></param>
-        /// <param name="libelle"></param>
+        /// <param name="idmotif">ID du motif</param>
+        /// <param name="libelle">Libelle du motif</param>
         public Motif(int idmotif, string libelle)
         {
             Idmotif = idmotif;
@@ -28,7 +35,7 @@ namespace atelier2persoabsences.model
         /// <summary>
         /// Resprentation d'instance de Motif sous forme de chaine
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Libelle du motif</returns>
         public override string ToString()
         {
             return Libelle;

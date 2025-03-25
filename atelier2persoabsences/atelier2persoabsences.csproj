@@ -120,9 +120,7 @@
     <Compile Include="view\FormAbsences.Designer.cs">
       <DependentUpon>FormAbsences.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\FormConnection.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="view\FormConnection.cs" />
     <Compile Include="view\FormConnection.Designer.cs">
       <DependentUpon>FormConnection.cs</DependentUpon>
     </Compile>

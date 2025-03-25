@@ -26,8 +26,8 @@ namespace atelier2persoabsences.controller
         /// <summary>
         /// Fonction pour demander au dal de controller les identifiants saisies
         /// </summary>
-        /// <param name="responsable"></param>
-        /// <returns></returns>
+        /// <param name="responsable">Instance de Responsable à controller</param>
+        /// <returns>Vrai si l'authentification réussi</returns>
         public bool ControleAuthentification(Responsable responsable)
         {
             return responsableAccess.ControleAuthentification(responsable);

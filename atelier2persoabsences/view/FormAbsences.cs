@@ -31,7 +31,8 @@ namespace atelier2persoabsences.view
         /// <summary>
         /// Constructeur de la classe que garde l'instance de FormPersonnel qui l'a crée
         /// </summary>
-        /// <param name="origine"></param>
+        /// <param name="origine">Instance de FormPersonnel qui à crée cet objet</param>
+        /// <param name="perso">Personne concernée</param>
         public FormAbsences(FormPersonnel origine, Personnel perso)
         {
             InitializeComponent();
@@ -40,6 +41,11 @@ namespace atelier2persoabsences.view
             control = new FormAbsenceController();
         }
 
+        /// <summary>
+        /// Chargement de FormAbsences
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormAbsences_Load(object sender, EventArgs e)
         {            
             isExitClicked = true;
@@ -138,6 +144,9 @@ namespace atelier2persoabsences.view
             ResetDisplay();
         }
 
+        /// <summary>
+        /// Réinitialiser l'affichage et les données
+        /// </summary>
         public void ResetDisplay()
         {
             groupAjoutModif.Enabled = false;
@@ -149,6 +158,10 @@ namespace atelier2persoabsences.view
             RefreshData();
         }
 
+        /// <summary>
+        /// Rendre accessible ou pas la partie haute de la fenêtre
+        /// </summary>
+        /// <param name="b">Vrai pour activer, faux pour désactiver</param>
         public void HautEnabled(bool b)
         {
             dgvAbsences.Enabled = b;
@@ -158,6 +171,10 @@ namespace atelier2persoabsences.view
             btnRetourner.Enabled = b;
         }
 
+        /// <summary>
+        /// Rendre accessible ou pas la partie saisie
+        /// </summary>
+        /// <param name="b">Vrai pour activer, faux pour désactiver</param>
         public void AjoutModifEnabled(bool b)
         {
             groupAjoutModif.Enabled = b;
@@ -174,6 +191,9 @@ namespace atelier2persoabsences.view
             absenceAvantModification = null;
         }
 
+        /// <summary>
+        /// Recupère les données Motif et Absence à jour
+        /// </summary>
         public void RefreshData()
         {
             // recupérer les motifs
@@ -231,14 +251,14 @@ namespace atelier2persoabsences.view
             groupAjoutModif.Text = "Modifier";
             btnAjoutModif.Text = "Modifier";
             Absence absenceAModifier = listeAbsences[dgvAbsences.CurrentRow.Index];
-            absenceAvantModification = absenceAModifier;
+            absenceAvantModification = (Absence)absenceAModifier.Clone();
             dateDebut.Value = absenceAModifier.Datedebut;
             dateFin.Value = absenceAModifier.Datefin;
             comboMotif.SelectedItem = absenceAModifier.Motif;
         }
 
         /// <summary>
-        /// Méthode qui gère l'enregistrement d'ajout ou modification
+        /// Gère l'enregistrement d'ajout ou modification
         /// </summary>
         public void EnregisterAjoutModif()
         {
@@ -253,7 +273,7 @@ namespace atelier2persoabsences.view
                 {
                     case "Modifier":
                         // Preparation d'instance à modifier
-                        Absence absenceAModifier = listeAbsences[dgvAbsences.CurrentRow.Index];
+                        Absence absenceAModifier = (Absence)listeAbsences[dgvAbsences.CurrentRow.Index].Clone();
                         absenceAModifier.Datedebut = dateDebut.Value;
                         absenceAModifier.Datefin = dateFin.Value;
                         absenceAModifier.Motif = (Motif)comboMotif.SelectedItem;
@@ -290,8 +310,8 @@ namespace atelier2persoabsences.view
         /// <summary>
         /// Verifier l'existance d'une absence en conflit avec celle à ajouter. Retourne vrai si il n'y pas de conflit.
         /// </summary>
-        /// <param name="nouvelle"></param>
-        /// <returns></returns>
+        /// <param name="nouvelle">Nouvelle absence prêt à être ajoutée</param>
+        /// <returns>Vrai si l'ajout peut procéder, faux si il est en conflit avec une absence existante</returns>
         public bool VerifierAjout(Absence nouvelle)
         {
             foreach (Absence existante in listeAbsences)
@@ -312,9 +332,9 @@ namespace atelier2persoabsences.view
         /// <summary>
         /// Verifier l'existance d'une absence en conflit avec celle à ajouter, mise apart celle en cours de modification. Retourne vrai si il n'y a pas de conflit.
         /// </summary>
-        /// <param name="nouvelle"></param>
-        /// <param name="avantModification"></param>
-        /// <returns></returns>
+        /// <param name="nouvelle">Nouvelle absence prêt à être ajoutée</param>
+        /// <param name="avantModification">Absence à modifier avant tout changement</param>
+        /// <returns>Vrai si l'ajout peut procéder, faux si il est en conflit avec une absence existante</returns>
         public bool VerifierModification(Absence nouvelle, Absence avantModification)
         {
             foreach (Absence existante in listeAbsences)

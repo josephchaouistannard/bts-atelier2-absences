@@ -11,14 +11,21 @@ namespace atelier2persoabsences.model
     /// </summary>
     public class Service
     {
+        /// <summary>
+        /// Correspond au champ idservice de la table Service
+        /// </summary>
         public int Idservice { get; }
+
+        /// <summary>
+        /// Correspond au champ nom de la table Service
+        /// </summary>
         public string Nom { get; set; }
 
         /// <summary>
         /// Constructeur de la classe Service
         /// </summary>
-        /// <param name="idservice"></param>
-        /// <param name="nom"></param>
+        /// <param name="idservice">ID de la service</param>
+        /// <param name="nom">Nom de la service</param>
         public Service(int idservice, string nom)
         {
             Idservice = idservice;
@@ -26,9 +33,9 @@ namespace atelier2persoabsences.model
         }
 
         /// <summary>
-        /// Utilise Nom pour representer une instance de la classe sous forme de chaine
+        /// Representer une instance de la classe sous forme de chaine
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Nom de la service</returns>
         public override string ToString()
         {
             return Nom;

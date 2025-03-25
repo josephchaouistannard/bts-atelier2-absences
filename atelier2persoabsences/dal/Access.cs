@@ -17,7 +17,10 @@ namespace atelier2persoabsences.dal
         private static readonly string connectionString = "server=localhost; port=3306; user id=mediatek; password='password'; database=mediatek86; SslMode=Required;";
         // instance unique de la classe
         private static Access instance = null;
-        // objet d'accès aux données
+        
+        /// <summary>
+        /// Objet d'accès aux données
+        /// </summary>
         public BddManager Manager { get; }
 
         /// <summary>
@@ -39,7 +42,7 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Méthode pour accèder au singleton Access
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Instance unique de Access</returns>
         public static Access GetInstance()
         {
             if (Access.instance == null)

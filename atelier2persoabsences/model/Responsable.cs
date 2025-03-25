@@ -12,14 +12,21 @@ namespace atelier2persoabsences.model
     /// </summary>
     public class Responsable
     {
+        /// <summary>
+        /// Correspond au champ login de la table Responsable
+        /// </summary>
         public string Login { get; }
+
+        /// <summary>
+        /// Correspond au champ pwd de la table Responsable
+        /// </summary>
         public string Pwd { get; }
 
         /// <summary>
         /// Constructeur de classe Responsable
         /// </summary>
-        /// <param name="login"></param>
-        /// <param name="pwd"></param>
+        /// <param name="login">Login du responsable</param>
+        /// <param name="pwd">Pwd du responsable</param>
         public Responsable(string login, string pwd)
         {
             Login = login;

@@ -11,22 +11,45 @@ namespace atelier2persoabsences.model
     /// </summary>
     public class Personnel
     {
+        /// <summary>
+        /// Correspond au champ idpersonnel de la table Personnel
+        /// </summary>
         public int Idpersonnel { get; }
+
+        /// <summary>
+        /// Correspond au champ nom de la table Personnel
+        /// </summary>
         public string Nom { get; set; }
+
+        /// <summary>
+        /// Correspond au champ prenom de la table Personnel
+        /// </summary>
         public string Prenom { get; set; }
+
+        /// <summary>
+        /// Correspond au champ tel de la table Personnel
+        /// </summary>
         public string Tel { get; set; }
+
+        /// <summary>
+        /// Correspond au champ mail de la table Personnel
+        /// </summary>
         public string Mail { get; set; }
+
+        /// <summary>
+        /// Correspond au champ idservice de la table Personnel
+        /// </summary>
         public Service Service { get; set; }
 
         /// <summary>
         /// Constructeur de la classe Personnel
         /// </summary>
-        /// <param name="idpersonnel"></param>
-        /// <param name="nom"></param>
-        /// <param name="prenom"></param>
-        /// <param name="tel"></param>
-        /// <param name="mail"></param>
-        /// <param name="service"></param>
+        /// <param name="idpersonnel">ID de la personne</param>
+        /// <param name="nom">Nom de la personne</param>
+        /// <param name="prenom">Prenom de la personne</param>
+        /// <param name="tel">Numéro téléphone de la personne</param>
+        /// <param name="mail">Adresse mail de la personne</param>
+        /// <param name="service">ID de la service à laquelle appartient la personne</param>
         public Personnel(int idpersonnel, string nom, string prenom, string tel, string mail, Service service)
         {
             Idpersonnel = idpersonnel;

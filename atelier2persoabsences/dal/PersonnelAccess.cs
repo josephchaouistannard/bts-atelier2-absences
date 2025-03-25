@@ -27,16 +27,16 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour obtenir la liste de personnel apartenant à la liste des services
         /// </summary>
-        /// <param name="lesServices"></param>
-        /// <returns></returns>
+        /// <param name="lesServices">Liste des services</param>
+        /// <returns>Tout le personnel appartenant à une serivice dans la liste, dans l'ordre alphabétique</returns>
         public List<Personnel> GetLePersonnel(List<Service> lesServices)
         {
             List<Personnel> lePersonnel = new List<Personnel>();
-            List<Object[]> result = new List<Object[]>();
+            List<Object[]> result;
 
             // construire la requête SQL avec la liste des services
             string query = "select * from personnel where idservice in (";
-            for (int i = 0; i < lesServices.Count(); i++)
+            for (int i = 0; i < lesServices.Count; i++)
             {
                 if (i == 0)
                 {
@@ -80,7 +80,7 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour ajouter une ligne dans Personnel
         /// </summary>
-        /// <param name="perso"></param>
+        /// <param name="perso">Personne à ajouter</param>
         public void AjouterPersonnel(Personnel perso)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -95,7 +95,7 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour mettre à jour une ligne dans Personnel
         /// </summary>
-        /// <param name="perso"></param>
+        /// <param name="perso">Personne à modifier</param>
         public void ModifierPersonnel(Personnel perso)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -111,7 +111,7 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour supprimer une ligne dans Personnel
         /// </summary>
-        /// <param name="perso"></param>
+        /// <param name="perso">Personne à supprimer</param>
         public void SupprimerPersonnel(Personnel perso)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();

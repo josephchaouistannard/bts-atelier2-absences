@@ -26,11 +26,11 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie demande SQL pour recuperer la liste des services
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Toutes les services dans la BDD</returns>
         public List<Service> GetLesServices()
         {
             List<Service> lesServices = new List<Service>();
-            List<Object[]> result = new List<Object[]>();
+            List<Object[]> result;
 
             try
             {

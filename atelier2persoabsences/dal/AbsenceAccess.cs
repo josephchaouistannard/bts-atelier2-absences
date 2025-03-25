@@ -10,6 +10,13 @@ using atelier2persoabsences.model;
 namespace atelier2persoabsences.dal
 {
     /// <summary>
+    /// Data Access Layer qui communique avec BddManager 
+    /// </summary>
+    class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Classe pour accèder au table Absence de la base de données
     /// </summary>
     public class AbsenceAccess
@@ -27,13 +34,13 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour recupérer la liste d'absences pour une personne
         /// </summary>
-        /// <param name="lesMotifs"></param>
-        /// <param name="perso"></param>
-        /// <returns></returns>
+        /// <param name="lesMotifs">liste des motifs</param>
+        /// <param name="perso">Personne concernée</param>
+        /// <returns>La liste de toutes absences de la personne, de la plus récente à la plus ancienne</returns>
         public List<Absence> GetLesAbsences(List<Motif> lesMotifs, Personnel perso)
         {
             List<Absence> lesAbsences = new List<Absence>();
-            List<Object[]> result = new List<Object[]>();
+            List<Object[]> result;
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@idpersonnel", perso.Idpersonnel);
 
@@ -68,8 +75,8 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour demander l'ajout d'une ligne dans Absence
         /// </summary>
-        /// <param name="absence"></param>
-        /// <param name="perso"></param>
+        /// <param name="absence">Absence à ajouter</param>
+        /// <param name="perso">Personne concernée</param>
         public void AjouterAbsence(Absence absence, Personnel perso)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -83,8 +90,8 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requête SQL pour demander la suppression d'une ligne dans Absence
         /// </summary>
-        /// <param name="absence"></param>
-        /// <param name="perso"></param>
+        /// <param name="absence">Absence à supprimer</param>
+        /// <param name="perso">Personne concernée</param>
         public void SupprimerAbsence(Absence absence, Personnel perso)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -96,9 +103,9 @@ namespace atelier2persoabsences.dal
         /// <summary>
         /// Envoie requete SQL pour modifier une ligne dans Absence, identifiée par son date de début avant modification
         /// </summary>
-        /// <param name="absence"></param>
-        /// <param name="perso"></param>
-        /// <param name="debutavant"></param>
+        /// <param name="absence">Absence modifier à enregistrer</param>
+        /// <param name="perso">Personne concernée</param>
+        /// <param name="debutavant">La date de début avant modification</param>
         public void ModifierAbsence(Absence absence, Personnel perso, DateTime debutavant)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();

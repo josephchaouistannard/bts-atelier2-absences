@@ -6,9 +6,16 @@ using MySql.Data.MySqlClient;
 namespace atelier2persoabsences.bddmanager
 {
     /// <summary>
-    /// Singleton : connexion à la base de données et exécution des requêtes
+    /// Package contenant une classe réutilisable pour communiquer avec une BDD MySQL
     /// </summary>
-    public sealed class BddManager
+    class NamespaceDoc
+    {
+    }
+
+        /// <summary>
+        /// Singleton : connexion à la base de données et exécution des requêtes
+        /// </summary>
+        public sealed class BddManager
     {
         /// <summary>
         /// instance unique de la classe
