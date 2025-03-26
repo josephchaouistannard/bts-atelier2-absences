@@ -12,12 +12,7 @@ using atelier2persoabsences.model;
 
 namespace atelier2persoabsences.view
 {
-    /// <summary>
-    /// La partie vue de l'application, composée de 3 formulaires
-    /// </summary>
-    class NamespaceDoc
-    {
-    }
+   
 
     /// <summary>
     /// Classe controlleur pour la fenêtre Connection

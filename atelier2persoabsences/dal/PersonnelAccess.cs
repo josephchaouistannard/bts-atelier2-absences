@@ -73,7 +73,6 @@ namespace atelier2persoabsences.dal
                     }
                 }
             }
-
             return lePersonnel;
         }
 
